@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS Testing_System;
-create database Testing_System;
-use Testing_System;
+DROP DATABASE IF EXISTS quan_ly_phong_ban;
+create database quan_ly_phong_ban;
+use quan_ly_phong_ban;
 -- tạo bảng khai báo phòng ban--
 CREATE TABLE department (
     department_id SMALLINT UNSIGNED PRIMARY KEY,
@@ -115,22 +115,22 @@ VALUES		(1, 'GENERAL DIRECTOR'		),
 -- NHẬP DỮ LIỆU CHO BẢNG ACCOUNT--
 INSERT INTO `account`(
 		account_id,		email,					username,		fullname,department_id,	position_id,create_date) VALUE
-			(1,	'nguyenngoc@gmail.com',		'nguyenngoc',	N'nguyễn thị ngọc ',6,			4,		25/08/2020),
-            (2,	'vanchiena1@gmail.com',		'chienproa1',	N'lê văn chiến ',	3,			2,		25/08/2020),
+			(1,	'nguyenngoc@gmail.com',		'nguyenngoc',	N'trương thị thương2',6,			4,		25/08/2020),
+            (2,	'vanchiena1@gmail.com',		'chienproa1',	N'lê văn chiến 1 ',	3,			2,		25/08/2020),
             (3,	'vantuana2@gmail.com',		'tuan190997',	N'nguyễn văn tuân',	2,			3,		26/08/2020),
             (4,	'trinhtuana1@gmail.com',	'trinhtuana1',	N'trịnh văn tuân',	4,			4,		26/08/2020),
-            (5,	'minhchien@gmail.com',		'minhchienlc',	N'lê minh chiến ',	4,			5,		27/08/2020),
+            (5,	'minhchien@gmail.com',		'minhchienlc',	N'lê văn chiến 2 ',	4,			5,		27/08/2020),
             (6, 'haidang29@gmail.com',		'caoanh240197', N'cao thị anh',		1,			1,		27/08/2020),
-            (7, 'account1@gmail.com',		'truongthuong', N'trương thị thương',5,			8,		27/08/2020),
+            (7, 'account1@gmail.com',		'truongthuong', N'trương thị thương1',5,			8,		27/08/2020),
             (8, 'account2@gmail.com',			'lelan',	N'le thị lan',		5,			7,		28/28/2020),
             (9, 'account3@gmail.com',			'ngocluc',	N'le ngoc luc',		10,			9,		28/08/2020);
 -- NHẬP DỮ LIỆU CHO BẢNG GROUP --
 INSERT INTO `group`(group_id,group_name,creator_id,creat_date) VALUE
-			(1,'SALES ',			2,		30/08/2020),
-            (2,'TETECHNICAL',		3,		30/08/2020),
-            (3,'DEV',				8,		31/08/2020),
-            (4,'SECURITY',			9,		31/08/2020),
-            (5,'MANAGER',			1,		01/09/2020);
+			(1,'SALES ',			2,		'2020-09-01'),
+            (2,'TETECHNICAL',		3,		'2020-09-01'),
+            (3,'DEV',				8,		'2020-08-31'),
+            (4,'SECURITY',			9,		'2020-08-30'),
+            (5,'MANAGER',			1,		'2020-08-30');
 -- NHẬP DỮ LIỆU CHO BẢNG group_account--
 INSERT INTO group_account(group_id,account_id,join_date) VALUE
 			(1,9,30/08/2020),
@@ -150,11 +150,11 @@ INSERT INTO category_question(category_id,category_name) VALUE
             (4,'ios'		),
 			(5,'SQL'		);
 INSERT INTO question(question_id,content,category_id,type_id,creator_id,create_date) VALUE
-			(1,'C LÀ GÌ'		,1,		1,		6,		01/09/2020),
-            (2,' C++ LÀ GÌ'		,2,		1,		6,		01/09/2020),
-            (3,' JAVA LÀ GÌ'	,3,		2,		1,		01/09/2020),
-            (4,' iOS LÀ GÌ'		,4,		2,		2,		01/09/2020),
-            (5,' SQL LÀ GÌ'		,5,		1,		1,		01/09/2020);
+			(1,' CÂU HỎI 1 C LÀ GÌ'		,1,		1,		6,		01/09/2020),
+            (2,' HÃY CHO BIẾT C++ LÀ GÌ'		,2,		1,		6,		01/09/2020),
+            (3,' CÂU HỎI 2 JAVA LÀ GÌ'	,3,		2,		1,		01/09/2020),
+            (4,' CÂU HỎI 3 iOS LÀ GÌ'		,4,		2,		2,		01/09/2020),
+            (5,' HÃY CHO BIẾT SQL LÀ GÌ'		,5,		1,		1,		01/09/2020);
 INSERT INTO answer(answer_id,content,question_id,iscorrect) VALUE 
 			(1,'C là một ngôn ngữ lập trình máy tính',1, 'đúng'),
             (2,'c++ là bổ chợ cho c ',2, 'sai'),
