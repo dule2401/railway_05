@@ -19,19 +19,19 @@ USE quan_ly_phong_ban;
 SELECT 
     *
 FROM
-    account
+    `account`
 WHERE
     LENGTH(FULLNAME) = (SELECT 
             LENGTH(MAX(FULLNAME))
         FROM
-            account);
+            `account`);
 
 -- Question 5 Lấy ra thông tin account có full name dài nhất và thuộc phòng ban có id= 3 --
 USE quan_ly_phong_ban;
 SELECT 
     *
 FROM
-    account
+    `account`
 WHERE
     department_id = 3
         AND LENGTH(FULLNAME) = (SELECT LENGTH(MAX(FULLNAME))); 
