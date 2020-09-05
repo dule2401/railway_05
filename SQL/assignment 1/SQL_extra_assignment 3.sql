@@ -11,7 +11,7 @@ FROM
     quan_ly
 WHERE
     LENGTH(full_name) = (SELECT 
-            LENGTH(MAX(full_name))
+            MAX(LENGTH(full_name))
         FROM
             quan_ly);
     

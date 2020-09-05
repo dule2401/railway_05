@@ -22,7 +22,7 @@ FROM
     `account`
 WHERE
     LENGTH(FULLNAME) = (SELECT 
-            LENGTH(MAX(FULLNAME))
+            MAX(LENGTH(FULLNAME))
         FROM
             `account`);
 
