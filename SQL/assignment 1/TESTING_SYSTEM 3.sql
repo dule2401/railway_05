@@ -34,7 +34,7 @@ FROM
     `account`
 WHERE
     department_id = 3
-        AND LENGTH(FULLNAME) = (SELECT LENGTH(MAX(FULLNAME))); 
+        AND LENGTH(FULLNAME) = (SELECT MAX(LENGTH(FULLNAME))); 
 
 -- Question 6: Lấy ra tên group đã tham gia trước ngày 2020-09-01 --
 USE quan_ly_phong_ban;
