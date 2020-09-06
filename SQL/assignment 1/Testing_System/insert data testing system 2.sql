@@ -109,21 +109,21 @@ VALUES		(1, 'GENERAL DIRECTOR'		),
             (4, 'FINANCE MANAGER'		),
             (5, 'CHIEF OF OPERRATIONS'		),
             (6, 'ACCOUNTANT'),
-            (7, 'CODER'),
+            (7, 'DEVELOPER'),
             (8,'WAREHOUSE STAFF'),
             (9,'SECURITY CHIEF');
 -- NHẬP DỮ LIỆU CHO BẢNG ACCOUNT--
 INSERT INTO `account`(
 		account_id,		email,					username,		fullname,department_id,	position_id,create_date) VALUE
-			(1,	'nguyenngoc@gmail.com',		'nguyenngoc',	N'trương thị thương2',6,			4,		25/08/2020),
-            (2,	'vanchiena1@gmail.com',		'chienproa1',	N'lê văn chiến 1 ',	3,			2,		25/08/2020),
-            (3,	'vantuana2@gmail.com',		'tuan190997',	N'nguyễn văn tuân',	2,			3,		26/08/2020),
-            (4,	'trinhtuana1@gmail.com',	'trinhtuana1',	N'trịnh văn tuân',	4,			4,		26/08/2020),
-            (5,	'minhchien@gmail.com',		'minhchienlc',	N'lê văn chiến 2 ',	4,			5,		27/08/2020),
-            (6, 'haidang29@gmail.com',		'caoanh240197', N'cao thị anh',		1,			1,		27/08/2020),
-            (7, 'account1@gmail.com',		'truongthuong', N'trương thị thương1',5,			8,		27/08/2020),
-            (8, 'account2@gmail.com',			'lelan',	N'le thị lan',		5,			7,		28/28/2020),
-            (9, 'account3@gmail.com',			'ngocluc',	N'le ngoc luc',		10,			9,		28/08/2020);
+			(1,	'nguyenngoc@gmail.com',		'nguyenngoc',	N'trương thị thương2',6,			7,	'2020-08-28'	),
+            (2,	'vanchiena1@gmail.com',		'chienproa1',	N'lê văn chiến 1 ',	3,			2,'2020-08-29	'	),
+            (3,	'vantuana2@gmail.com',		'tuan190997',	N'nguyễn văn tuân',	2,			3,'	2020-08-27	'),
+            (4,	'trinhtuana1@gmail.com',	'trinhtuana1',	N'trịnh văn tuân',	4,			4,	'2020-08-28	'),
+            (5,	'minhchien@gmail.com',		'minhchienlc',	N'lê văn chiến 2 ',	4,			7,	'2020-09-01	'),
+            (6, 'haidang29@gmail.com',		'caoanh240197', N'cao thị anh',		1,			1,	'2020-09-02	'),
+            (7, 'account1@gmail.com',		'truongthuong', N'trương thị thương1',5,			8,	'2020-08-29'	),
+            (8, 'account2@gmail.com',			'lelan',	N'le thị lan',		5,			7,	'2020-09-01'	),
+            (9, 'account3@gmail.com',			'ngocluc',	N'le ngoc luc',		10,			9,	'2020-08-29	');
 -- NHẬP DỮ LIỆU CHO BẢNG GROUP --
 INSERT INTO `group`(group_id,group_name,creator_id,creat_date) VALUE
 			(1,'SALES ',			2,		'2020-09-01'),
@@ -136,8 +136,7 @@ INSERT INTO group_account(group_id,account_id,join_date) VALUE
 			(1,9,30/08/2020),
             (2,5,30/08/2020),
             (3,3,31/08/2020),
-            (4,6,31/08/2020),
-            (5,7,31/08/2020);
+            (4,6,31/08/2020);
 -- NHẬP DỮ LIỆU CHO BẢNG typequesition --
 INSERT INTO type_quesition(type_id,type_name) VALUE
 			(1,'True / False'),
@@ -157,8 +156,8 @@ INSERT INTO question(question_id,content,category_id,type_id,creator_id,create_d
             (5,' HÃY CHO BIẾT SQL LÀ GÌ'		,5,		1,		1,		01/09/2020);
 INSERT INTO answer(answer_id,content,question_id,iscorrect) VALUE 
 			(1,'C là một ngôn ngữ lập trình máy tính',1, 'đúng'),
-            (2,'c++ là bổ chợ cho c ',2, 'sai'),
-            (3,'là ngôn ngữ lập trình máy tính ',3, 'đúng'),
+            (2,'c++ là bổ chợ cho c ',1, 'sai'),
+            (3,'là ngôn ngữ lập trình máy tính ',1, 'đúng'),
             (4,'là hệ điều hành của ios ',4,'sai'),
             (5,'là kiểu rảng buộc dữ liệu ',5, 'đúng');
 INSERT INTO exam(exam_id,`code`,title,category_id,duration,creator_id,create_date) VALUE

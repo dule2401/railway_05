@@ -44,6 +44,12 @@ FROM
     `group`
 WHERE
     creat_date < '2020-09-01';
+-- Question 7: Lấy ra ID của question có >= 4 câu trả lời --
+USE quan_ly_phong_ban;
+SELECT   question_id,count(answer_id) AS SỐ_LƯỢNG_answer
+FROM answer
+GROUP BY question_id 
+HAVING count(answer_id) >1;
 
 -- Question 8: Lấy ra các mã đề thi có thời gian thi >= 60 phút và được tạo trước ngày 2020-09-02 --
 USE quan_ly_phong_ban;
@@ -84,9 +90,12 @@ WHERE
     
 -- Question 12: Xóa tất cả các exam được tạo trước ngày 2020-09-04 --
 USE quan_ly_phong_ban;
-DELETE FROM exam 
-WHERE
-    create_date < '2020-09-04';
+DELETE 
+FROM examquestion 
+WHERE exam_id IN (SELECT exam_id
+					from exam
+					WHERE create_date < '2020-09-04');
+
 
 -- Question 13: Xóa tất cả các question có nội dung bắt đầu bằng từ "câu hỏi" --
 USE quan_ly_phong_ban;

@@ -1,7 +1,8 @@
 -- Question 2: Viết lệnh để lấy ra tất cả các thực tập sinh đã vượt qua bài test đầu vào, nhóm chúng thành các tháng sinh khác nhau --
 USE quan_ly_hoc_sinh;
-SELECT *
-from quan_ly;
+SELECT GROUP_CONCAT(full_name), GROUP_CONCAT(year(birth_date),'-',month(birth_date))
+from quan_ly
+GROUP BY month(birth_date), year(birth_date);
 
 -- Question 3: Viết lệnh để lấy ra thực tập sinh có tên dài nhất, lấy ra các thông tin sau: tên, tuổi, các thông tin cơ bản (như đã được định nghĩa trong table) --
 USE quan_ly_hoc_sinh;

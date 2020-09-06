@@ -18,4 +18,3 @@ evaluation_notes Nvarchar(200) -- note đánh giá --
  );
  -- Thêm trường vti_account vào bảng với điều kiện unique và not null--
 ALTER TABLE Trainee ADD vti_account SMALLINT UNSIGNED UNIQUE NOT NULL
-
