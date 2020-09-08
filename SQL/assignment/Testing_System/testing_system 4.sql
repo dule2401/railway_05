@@ -138,22 +138,40 @@ HAVING COUNT(A.position_id) = (SELECT
         GROUP BY A.position_id) AS chuc_vu_nhan_vien);
 --------------------------------------------------------------------------------------
 -- Question 11: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM ---
+
+-----------------------------------------------------------
+-- Question 12: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của
+-- question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, …
 USE `quan_ly_phong_ban`;
-SELECT D.department_id,D.department_name,Q.position_id,Q.position_name,count( D.department_id) as so_nhan_vien
-from `account` A
-LEFT join department D on A.department_id = D.department_id
-join position Q on Q.position_id = A.position_id
-GROUP BY  D.department_id
-having count( D.department_id)
+SELECT 
+    Q.question_id,
+    Q.category_id,
+    Q.type_id,
+    Q.creator_id,
+    AC.fullname,
+    A.answer_id,
+    A.content
+FROM
+    question Q
+        LEFT JOIN
+    answer A ON Q.question_id = A.question_id
+        LEFT JOIN
+    `account` AC ON Q.creator_id = AC.account_id;
 
-UNION
-SELECT Q.position_id,Q.position_name,count(A.account_id) as so_nhan_vien
-from position Q
-LEFT JOIN `account` A on Q.position_id = A.position_id
-GROUP BY A.position_id
-having count(A.account_id)
+----------------------------------------------------------------------
+-- Question 13: Lấy ra số lượng câu hỏi của mỗi loại tự luận hay trắc nghiệm
+USE `quan_ly_phong_ban`;
+SELECT 
+    TQ.type_id,
+    TQ.type_name,
+    COUNT(Q.type_id) AS so_luong_cau_hoi
+FROM
+    question Q
+        LEFT JOIN
+    type_quesition TQ ON Q.type_id = TQ.type_id
+GROUP BY Q.type_id
+HAVING COUNT(Q.type_id);
 
-;
 ---------------------------------------------------
 -- Question 14:Lấy ra group không có account nào --
 USE `quan_ly_phong_ban`;
