@@ -17,7 +17,11 @@ WHERE
             
 -- Question 2: Thay đổi câu Query 1 để lấy được kết quả sau.
 -- In this exercise you can change the previous query to deliver the following result set. 
-
+select P.`name`
+FROM
+    `product` P
+    join `productsubcategory` PR on P.ProductSubcategoryID =PR.ProductSubcategoryID
+WHERE P.`name` like '%Bo%';
 
 
 -- Question 3:
@@ -87,6 +91,7 @@ join `salesorderheader` SS on SP.SalesPersonID= SS.SalesPersonID);
 select SO.SalesOrderID,SO.OrderDate,SO.Bonus,SO.SalesYTD,E.Title
 from sales_order SO
 left join `employee` E on SO.SalesPersonID = E.EmployeeID;
+-- dùng cte --
 
 -----------------------------------------------------------------------
 -- 
