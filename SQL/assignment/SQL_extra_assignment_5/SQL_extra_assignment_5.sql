@@ -70,6 +70,24 @@ FROM
 -- BusinessEntityID (là định danh của người sales), Bonus and the SalesYTD (là đã sale
 -- được bao nhiêu người trong năm nay)
 
+use `adventureworks`;
+SELECT SS.SalesOrderID,SP.SalesPersonID,SS.OrderDate,SP.Bonus,SP.SalesYTD
+from `salesperson` SP
+join `salesorderheader` SS on SP.SalesPersonID= SS.SalesPersonID;
 
+-----------------------------------------------------------------------
+-- Question 4:
+-- Sử dụng câu query, thêm cột JobTitle and xóa cột SalesPersonID và
+-- BusinessEntityID.
+use `adventureworks`;
+create view sales_order as (
+SELECT SS.SalesOrderID,SP.SalesPersonID,SS.OrderDate,SP.Bonus,SP.SalesYTD
+from `salesperson` SP
+join `salesorderheader` SS on SP.SalesPersonID= SS.SalesPersonID);
+select SO.SalesOrderID,SO.OrderDate,SO.Bonus,SO.SalesYTD,E.Title
+from sales_order SO
+left join `employee` E on SO.SalesPersonID = E.EmployeeID;
 
+-----------------------------------------------------------------------
+-- 
 
