@@ -32,17 +32,17 @@ SELECT
     `Name`
 FROM
     product
-WHERE
-    StandardCost = (SELECT 
+WHERE ProductSubcategoryID = 3 and
+    ListPrice = (SELECT 
             *
         FROM
             (SELECT 
-                MIN(StandardCost)
+                MIN(ListPrice)
             FROM
                 product
             WHERE
-                ProductSubcategoryID = 3) AS min_StandardCost);
-                
+                ProductSubcategoryID = 3) AS min_ListPrice);
+-- dùng cte ------------------------              
 --------------------------------------------------------------------
 -- Exercise 2: JOIN nhiều bảng
 -- Question 1: Viết query lấy danh sách tên country và provicountryregionnce được lưu trong
