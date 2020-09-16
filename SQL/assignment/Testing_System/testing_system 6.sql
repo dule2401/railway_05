@@ -89,13 +89,16 @@ drop procedure if exists user_information;
 DELIMITER $$
 CREATE PROCEDURE user_information (IN input_string VARCHAR(100))
 begin 
-	select G.group_name 
+	select username, null as group_name
+    from `account`
+    where username like concat('%', 'input_string','%')
+    union 
+    SELECT null as username ,group_name
     from `group`
-    join `group_account` GA on G.group_id= GA.group_id
-    join `account` A on GA.account_id = A.account_id
-    where G.group_name like concat('%',' ','input_string',' ','%' ) or A.username like concat('%',' ','input_string',' ','%') ;
+    WHERE group_name like concat('%', 'input_string','%');
 end$$
 DELIMITER ;
+call user_information ('a');
 
 -- ------------------------------------------------------------------------------\
 -- Question 7: Viết 1 store cho phép người dùng nhập vào thông tin fullName, email và
@@ -106,9 +109,11 @@ DELIMITER ;
 -- Sau đó in ra kết quả tạo thành công
 
 
+
+
 -- -------------------------------------------------------------
--- Question 8: Viết 1 store cho phép người dùng nhập vào Essay hoặc Multiple-Choice
--- để thống kê câu hỏi essay hoặc multiple-choice nào có content dài nhất
+--- - Question 8: Viết 1 store cho phép người dùng nhập vào Essay hoặc Multiple-Choice
+-- -- để thống kê câu hỏi essay hoặc multiple-choice nào có content dài nhất
 DELIMITER $$
 create procedure max_content (in in_put enum('essay','Multiple-Choice') )
 begin
@@ -117,7 +122,7 @@ begin
     WHERE LENGTH(Q.content) = (SELECT MAX(LENGTH(Q.content))
 							   FROM questions Q
 							   JOIN type_question TQ ON Q.type_id = TQ.type_id
-                               WHERE TQ.type_name = in_type_name);
+                               WHERE TQ.type_name = in_put);
 end$$
 DELIMITER ;
 
@@ -135,10 +140,176 @@ DELIMITER ;
 -- dụng store ở câu 9 để xóa)
 -- Sau đó in số lượng record đã remove từ các table liên quan trong khi
 -- removing
+DROP PROCEDURE IF EXISTS delete_exam_3_years_ago;
 DELIMITER $$
 create procedure delete_exam_3_years_ago()
-begin delete from (
-		select *
-        from `exam`
+begin 
+		delete 
+			from `exam`
+			WHERE exam_id = (
+							select exam_id
+							from `exam`
+							where year(now())-year(create_date) >3 );
+				
+end$$
+DELIMITER ;
+-- -------------------------------------------------------------------------
+-- Question 11: Viết store cho phép người dùng xóa phòng ban bằng cách người dùng
+--  nhập vào tên phòng ban và các account thuộc phòng ban đó sẽ được
+--  chuyển về phòng ban default là phòng ban chờ việc -- 
+
+DROP PROCEDURE IF EXISTS delete_department;
+DELIMITER $$
+CREATE PROCEDURE delete_department (in input_department_name varchar(50))
+BEGIN 
+	UPDATE `account`
+    SET department_id = 1
+    where departmen_id = (select departmen_id
+							    FROM `department`
+								WHERE department_name = input_department_name);
+	DELETE
+    FROM `department` 
+	wHERE
+		department_name = input_department_name;
+END$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+-- -- Question 12: Viết store để in ra mỗi tháng có bao nhiêu câu hỏi được tạo trong năm
+--  nay
+
+DROP PROCEDURE IF EXISTS every_month_how_many_question_in_year ;
+ DELIMITER $$
+CREATE PROCEDURE every_month_how_many_question_in_year ()
+	BEGIN 
+		SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =1) as thang_1
+		UNION
+			SELECT sum(so_luong_cau_hoi_trong_thang)AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =2) as thang_2
+      union
+			SELECT sum(so_luong_cau_hoi_trong_thang)AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =3) as thang_3
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang)AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =4) as thang_4
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =5) as thang_5
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =6) as thang_6
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =7) as thang_7
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =9) as thang_8
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =10) as thang_10
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =11) as thang_11
+		UNION
+                SELECT sum(so_luong_cau_hoi_trong_thang) AS tong_so_luong_cau_hoi_trong_thang
+			from
+				(SELECT count(question_id) As so_luong_cau_hoi_trong_thang
+				FROM `question`
+				group by create_date
+				having month(create_date) =12) as thang_12;
+END$$
+DELIMITER ;
+-- ---------------------------------------------------------------------
+-- Question 13: Viết store để in ra mỗi tháng có bao nhiêu câu hỏi được tạo trong 6
+-- tháng gần đây nhất
+-- (Nếu tháng nào không có thì sẽ in ra là "không có câu hỏi nào trong tháng")
+
+DELIMITER $$
+CREATE PROCEDURE NUMBER_QUESTION_6_MONTH_AGO ()
+BEGIN 
+	SELECT COUNT(question_id) as so_cau_hoi
+    from `question`
+    GROUP BY create_date
+    HAVING MONTH(create_date) =month(CURRENT_DATE - INTERVAL 0 MONTH)
+    union 
+    SELECT COUNT(question_id) as so_cau_hoi
+    from `question`
+    GROUP BY create_date
+    HAVING MONTH(create_date) =month(CURRENT_DATE - INTERVAL 1 MONTH)
+     union 
+    SELECT COUNT(question_id) as so_cau_hoi
+    from `question`
+    GROUP BY create_date
+    HAVING MONTH(create_date) =month(CURRENT_DATE - INTERVAL 2 MONTH)
+     union 
+    SELECT COUNT(question_id) as so_cau_hoi
+    from `question`
+    GROUP BY create_date
+    HAVING MONTH(create_date) =month(CURRENT_DATE - INTERVAL 3 MONTH)
+     union 
+    SELECT COUNT(question_id) as so_cau_hoi
+    from `question`
+    GROUP BY create_date
+    HAVING MONTH(create_date) =month(CURRENT_DATE - INTERVAL 4 MONTH)
+     union 
+    SELECT COUNT(question_id) as so_cau_hoi
+    from `question`
+    GROUP BY create_date
+    HAVING MONTH(create_date) =month(CURRENT_DATE - INTERVAL 5 MONTH);
+END$$
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
