@@ -108,13 +108,15 @@ DELIMITER ;
 USE ThucTap;
 DROP PROCEDURE IF EXISTS delete_stud;
 DELIMITER $$
-CREATE PROCEDURE delete_stud(IN in_put_mssv SMALLINT UNSIGNED )
+CREATE PROCEDURE delete_stud(IN in_put_hoten NVARCHAR(50) )
 	BEGIN
 		DELETE 
 		FROM HuongDan
-        WHERE masv = in_put_mssv;
+        WHERE masv = (SELECT masv
+						 FROM SinhVien
+						WHERE hoten = 'in_put_hoten');
         DELETE
         FROM SinhVien
-        WHERE masv = in_put_mssv;
+        WHERE hoten = 'in_put_hoten';
     END$$
 DELIMITER ;
