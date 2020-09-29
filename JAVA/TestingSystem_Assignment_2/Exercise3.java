@@ -251,12 +251,14 @@ public static void main(String[] args) {
 		System.out.println(simpleDateFormat.format(date));
 	}
 	
+	//  exercire2 question 6
+		System.out.printf("%s, %30s, %30s \n " , "email","fullname","accountID");
+		System.out.printf("%s, %15s, %20s \n",  du.email, du.fullName,du.accountID);
+		System.out.printf("%s, %15s, %20s \n",  thuong.email, thuong.fullName,thuong.accountID);
+		System.out.printf("%s, %15s, %25s \n",  anh.email, anh.fullName,anh.accountID);
 	
 	
-	
-	
-	
-	
+
 	
 	
 	
