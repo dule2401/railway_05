@@ -110,11 +110,6 @@ DROP PROCEDURE IF EXISTS delete_stud;
 DELIMITER $$
 CREATE PROCEDURE delete_stud(IN in_put_hoten NVARCHAR(50) )
 	BEGIN
-		DELETE 
-		FROM HuongDan
-        WHERE masv = (SELECT masv
-						 FROM SinhVien
-						WHERE hoten = 'in_put_hoten');
         DELETE
         FROM SinhVien
         WHERE hoten = 'in_put_hoten';

@@ -20,9 +20,8 @@ CREATE TABLE `account` (
     fullname NVARCHAR(50) CHECK(length(fullname)>= 3),
     department_id SMALLINT UNSIGNED,
     position_id SMALLINT UNSIGNED not null,
-    create_date DATETIME,
-    FOREIGN KEY (department_id)REFERENCES department(department_id),
-    FOREIGN KEY (position_id)REFERENCES `position`(position_id)
+    create_date DATETIME
+    
 );
 -- bảng khai báo group--
 CREATE TABLE `group` (
@@ -36,9 +35,8 @@ CREATE TABLE group_account (
     group_id SMALLINT UNSIGNED UNIQUE,
     account_id INT UNIQUE UNIQUE,
     join_date DATETIME,
-    PRIMARY KEY (group_iD, account_id),
-    FOREIGN KEY (account_id)REFERENCES `account`(account_id),
-    FOREIGN KEY(group_id)REFERENCES `group`(group_id)
+    PRIMARY KEY (group_iD, account_id)
+   
 );
 -- loại câu hỏi --
 CREATE TABLE type_quesition (
@@ -58,9 +56,8 @@ CREATE TABLE question (
     category_id SMALLINT UNSIGNED UNIQUE,
     type_id SMALLINT UNSIGNED,
     creator_id SMALLINT UNSIGNED,
-    create_date DATETIME,
-    FOREIGN KEY(category_id) REFERENCES category_question(category_id),
-    FOREIGN KEY(type_id)REFERENCES type_quesition(type_id)
+    create_date DATETIME
+   
 );
 -- câu trả lời --
 CREATE TABLE answer (
@@ -68,8 +65,8 @@ CREATE TABLE answer (
     content VARCHAR(50) NOT NULL,
     question_id SMALLINT UNSIGNED,
     iscorrect ENUM('đúng','sai') DEFAULT('sai'),
-    PRIMARY KEY (answer_id,question_id),
-    FOREIGN KEY(question_id) REFERENCES question(question_id)
+    PRIMARY KEY (answer_id,question_id)
+   
 );
 
 -- đề thi --
@@ -86,9 +83,8 @@ CREATE TABLE exam (
 CREATE TABLE examquestion (
     exam_id SMALLINT UNSIGNED,
     question_id SMALLINT UNSIGNED,
-    PRIMARY KEY(exam_id,question_id),
-    FOREIGN KEY(exam_id) REFERENCES exam(exam_id),
-    FOREIGN KEY(question_id) REFERENCES question(question_id)
+    PRIMARY KEY(exam_id,question_id)
+    
 );
 -- NHẬP DỮ LIỆU CHO BẢNG PHÒNG BAN--
  INSERT INTO department(department_id, department_name)
