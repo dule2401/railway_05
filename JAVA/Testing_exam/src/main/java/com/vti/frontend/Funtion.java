@@ -49,6 +49,20 @@ public class Funtion {
 		}
 		return users;
 	}
+	/**
+	 * This method is . 
+	 * 
+	 * @Description: .
+	 * @author: LNDu
+	 * @create_date: Oct 25, 2020
+	 * @version: 1.0
+	 * @modifer: LNDu
+	 * @modifer_date: Oct 25, 2020
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public static void getuserbyid() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException {
 		List<User> users = new ArrayList<User>();
 		Connection connection = jbdcultis.getConnection();
@@ -72,6 +86,20 @@ public class Funtion {
 
 	}
 
+	/**
+	 * This method is . 
+	 * 
+	 * @Description: .
+	 * @author: LNDu
+	 * @create_date: Oct 25, 2020
+	 * @version: 1.0
+	 * @modifer: LNDu
+	 * @modifer_date: Oct 25, 2020
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 * @throws SQLException
+	 * @throws IOException
+	 */
 	public static void getManagerbyid() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException {
 		List<User> users = new ArrayList<User>();
 		Connection connection = jbdcultis.getConnection();
@@ -99,6 +127,18 @@ public class Funtion {
 		jbdcultis.disconnect();
 
 	}
+	/**
+	 * This method is . 
+	 * 
+	 * @Description: .
+	 * @author: LNDu
+	 * @create_date: Oct 25, 2020
+	 * @version: 1.0
+	 * @modifer: LNDu
+	 * @modifer_date: Oct 25, 2020
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void login() throws ClassNotFoundException, SQLException {
 		while (true) {
 			System.out.print("Mời bạn nhập vào Email của account: ");
