@@ -83,7 +83,7 @@ CREATE TABLE exam (
 CREATE TABLE examquestion (
     exam_id SMALLINT UNSIGNED,
     question_id SMALLINT UNSIGNED,
-    PRIMARY KEY(exam_id,question_id)
+    PRIMARY KEY(exam_id,question_id)department
     
 );
 -- NHẬP DỮ LIỆU CHO BẢNG PHÒNG BAN--
