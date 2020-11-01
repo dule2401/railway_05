@@ -75,19 +75,19 @@ Question 1: heading -->
 <!-- Question 4: form -->
     <p>Please <Strong>fill in this form</Strong>to create an account<p>
     <form action="action_page.php">
-      <b>Fullname <b style="color:red;">*</b><br>
+      <b>Fullname </b> <span style="color:red;">*</span><br>
       <input type="text" name="fullname" placeholder="Input your fullname"><br>
       <br>
-      <b>Username<b style="color:red;">*</b><br>
+      <b>Username</b> <span style="color:red;">*</span><br>
       <input type="text" name="Username" placeholder="Input your username"><br>
       <br>
-      <b>Password<b style="color:red;">*</b><br>
+      <b>Password</b> <span style="color:red;">*</span><br>
       <input type="password" name="Password" placeholder="Input your password"><br>
       <br>
-      <b>Emaill<b style="color:red;">*</b><br>
+      <b>Emaill</b> <span style="color:red;">*</span><br>
       <input type="email" name="Emaill" placeholder="Input your emaill"><br>
       <br>
-      <b>Telephone number<b style="color:red;">*</b><br>
+      <b>Telephone number</b> <span style="color:red;">*</span><br>
       <input type="tell" name="Telephone number" placeholder="Input your Telephone number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
       <br>
       <b>Input object:</b><br>
@@ -175,20 +175,117 @@ Question 1: heading -->
         </table>
         <p>------------------------------------------------------</p>
         <br>
-        <table border="1" cellpadding="2" cellspacing="2">>
+        <table border="1" cellpadding="2" cellspacing="2">
           <thead>
             <tr>
-              <th >Tiêu đề cột 1 hàng 1</th>
-              <th>Tiêu đề cột 2 hàng 1</th>
-              <th colspan="2">Phần thân cột 1 hàng 2</th>
+              <th rowspan="2">STT</th>
+              <th rowspan="2">Họ tên</th>
+              <th colspan="2">Giới tính</th>
+              <th rowspan="2">Chức vụ</th>
               <tr>
-                <td>Phần thân cột 1 hàng 3</td>
-                <td>Phần thân cột 2 hàng 3</td>
+                <td>Nam</td>
+                <td>Nữ</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Trần đức anh</td>
+                <td>X</td>
+                <td></td>
+                <td>Lớp Trưởng</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Kiều Thị Thu Hằng</td>
+                <td></td>
+                <td>X</td>
+                <td>Lớp Phó</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Vương Thị Lê na</td>
+                <td></td>
+                <td>X</td>
+                <td>Tổ viên</td>
               </tr>
             </tr>
-
-    </tbody>
- 		   </tbody>
         </table>
+        <pre>
+----------------------------------------------
+        </pre>
+        <table>
+          <tr>
+            <th>STT</th>
+            <th>Họ tên</th>
+            <th>GVHD</th>
+            <th>Lịch gặp giáo viên</th>
+            <tr>
+              <td>1</td>
+              <td>Nguyễn Lê Thu Trang</td>
+              <td rowspan="3">Ths Hồ sỹ Tuy Đức</td>
+              <td rowspan="3">08/03/2018</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Nguyễn Thị Diễm</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Phạm Thị Hồng Đào</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Nguyễn Thị Kim Sa</td>
+              <td rowspan="2">TH.S Phạm Thị Huyền Quyên</td>
+              <td rowspan="2">05/03/2018</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Lê Thị Trang</td>
+            </tr>
+          </tr>
+        </table>
+        <pre>
+---------------------------------------------
+        </pre>
+        <table>
+          <tr>
+            <th colspan="2">Bảng điểm lớp 9B</th>
+            <th rowspan="2">Toán</th>
+            <th rowspan="2">Lý</th>
+            <th rowspan="2">Hóa</th>
+            <tr>
+              <td>STT</td>
+              <td>Họ Tên</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Trần Đức Anh</td>
+              <td>8.5</td>
+              <td>3.0</td>
+              <td>7.75</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Kiều Thị Thu Hằng</td>
+              <td>8.5</td>
+              <td>3.0</td>
+              <td>7.75</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Vương Thị Lê Na</td>
+              <td>8.5</td>
+              <td>3.0</td>
+              <td>7.75</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="4">Điểm trung bình cả lớp</td>
+            </tr>
+          </tr>
+        </table>
+        <!--
+        Exercise 4: Demo Project
+        -->
   </body>
 </html>
