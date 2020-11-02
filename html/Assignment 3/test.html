@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo">ước khoai to</p>
+    <button type="button" onclick="chageContent()">
+        chọn đi
+    </button>
+    <script>
+        function chageContent() {
+            document.getElementById("demo").innerHTML = "ước đẹp trai";
+        }
+    </script>
+
+    <script>
+        function Person(fistname, lastname, age, eyes) {
+            this.fistname = fistname;
+            this.fullname = lastname;
+            this.age = age;
+            this.eyes = eyes;
+        }
+        var myFather = new Person("du", "Le", 23, "black");
+        var myMother = new Person("anh", "cao", 23, "red");
+
+        console.log(myFather.fistname + " " + myMother.fistname + " là vợ chồng :)");
+
+
+    </script>
+    <script>
+        var obj = {
+            counter: 0,
+            get reset() {
+                this.counter = 0;
+            },
+            get increment() {
+                this.counter++;
+            },
+            get decrement() {
+                this.counter--;
+            },
+            set add(value) {
+                this.counter += value;
+            },
+            set subtract(value) {
+                this.counter -= value;
+            }
+        };
+        obj.reset;
+        obj.add = 5;
+        obj.subtract = 3;
+        obj.increment;
+        console.log(obj.counter);
+    </script>
+    <script></script>
+
+</body>
+
+</html>
