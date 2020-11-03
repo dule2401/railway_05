@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">/
+    <title>Exercise 1 – Datatype</title>
+</head>
+
+<body>
+    <script>
+        function Department(DepartmentID, DepartmentName) {
+            this.DepartmentID = DepartmentID;
+            this.DepartmentName = DepartmentName;
+        }
+        var department1 = new Department(1, "java");
+        var department2 = new Department(2, "sql");
+        var department3 = new Department(3, "html");
+
+        document.write(department1.DepartmentID + " " + department1.DepartmentName) + "<br>";
+        document.write(department2.DepartmentID + " " + department2.DepartmentName);
+
+        function Position(PositionID, PositionName) {
+            this.PositionID = PositionID;
+            this.PositionName = PositionName;
+        }
+        var position1 = new Position(1, "manager");
+        var position2 = new Position(2, "employee");
+
+        document.write(position1.PositionID + " " + position2.PositionName);
+        document.write(position2.PositionID + " " + position2.PositionID);
+
+        function Account(AccountID, Email, Username, FullName, DepartmentID, PositionID, CreateDate) {
+            this.AccountID = AccountID;
+            this.Email = Email;
+            this.Username = Username;
+            this.FullName = FullName;
+            this.DepartmentID = DepartmentID;
+            this.PositionID = PositionID;
+            this.CreateDate = CreateDate;
+        }
+        var du = new Account(1, "alka.asura@gmail.com", "dule", "lê ngọc du", 1, 2, "03/10/2020");
+        var anh = new Account(2, "caoanh@gmail.com", "caoanh", "cao thị anh", 2, 1, "03/10/2020");
+        var mie = new Account(3, "anhmie@gmail.com", "anhmie", "cao anh mie", 2, 2, "03/10/2020");
+        var mie2 = new Account(3, "anhmie2@gmail", "anhmie2", "cao anh mie 2", 1, 1,"04/09/2020");
+
+        document.write(du.AccountID + " "+ du.Email+" "+ du.Username+" "+ du.FullName);
+        document.write(anh.AccountID + " "+ anh.Email+" "+ anh.Username+" "+ anh.FullName);
+        document.write(mie.AccountID + " "+ mie.Email+" "+ mie.Username+" "+ mie.FullName);
+        document.write(mie2.AccountID + " "+ mie2.Email+" "+ mie2.Username+" "+ mie2.FullName);
+
+        function Group(GroupID, GroupName, CreatorID, CreateDate) {
+            this.GroupID = GroupID;
+            this.GroupName = GroupName;
+            this.CreatorID = CreatorID;
+            this.CreateDate = CreateDate;
+        }
+        var Group1 = new Group(1, "GroupName1", 1, "30/09/2020");
+        var Group2 = new Group(2, "GroupName2", 2, "30/09/2020");
+        document.write(Group1.GroupID + " " + Group1.GroupName);
+        document.write(Group2.GroupID + " " + Group2.GroupName);
+
+        function GroupAccount(GroupID, AccountID, JoinDate) {
+            this.GroupID = GroupID;
+            this.AccountID = AccountID;
+            this.JoinDate = JoinDate;
+        }
+        var GroupAccount1 = new GroupAccount(1, 1, "30/09/2020");
+        var GroupAccount2 = new GroupAccount(2, 2, "30/09/2020");
+        var GroupAccount3 = new GroupAccount(2, 3, "30/09/2020");
+        var GroupAccount4 = new GroupAccount(1, 4, "30/09/2020");
+
+        document.write(GroupAccount1.GroupID + " " + GroupAccount1.AccountID);
+        document.write(GroupAccount2.GroupID + " " + GroupAccount2.AccountID);
+        document.write(GroupAccount3.GroupID + " " + GroupAccount3.AccountID);
+        document.write(GroupAccount4.GroupID + " " + GroupAccount4.AccountID);
+
+        if (anh.DepartmentID == null) {
+            text += "nhân viên này chưa có phongf ban"+ "<br>";
+        } else{
+        text += "phòng ban nhân viên này là "+ DepartmentID + "<br>";
+    }   
+    </script>
+</body>
+
+</html>

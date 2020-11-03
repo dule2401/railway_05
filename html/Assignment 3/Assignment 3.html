@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo">abc</p>
+    <button type="button" onclick="changeContent()">văn bản</button>
+    <script>
+        function changeContent() {
+            document.getElementById("demo").innerHTML = "đã sửa";
+        }
+    </script>
+    <script>
+        function Person(firstName, lastName, age, aye) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.aye = aye;
+        }
+        var myFather = new Person("vu", "van", 25, "red");
+        var myMother = new Person("nguyen", "thi", 20, "pink");
+        console.log(myMother.firstName + " va " + myFather.firstName)
+    </script>
+    <script>
+        var obj = {
+            counter: 0,
+            get reset() {
+                this.counter = 0;
+            },
+            get increment() {
+                this.counter++;
+            },
+            get decrement() {
+                this.counter--;
+            },
+            set add(value) {
+                this.counter += value;
+            },
+            set subtract(value) {
+                this.counter -= value;
+            }
+        };
+        obj.reset;
+        obj.add = 5;
+        obj.subtract = 3;
+        obj.increment;
+        console.log(obj.counter);
+    </script>
+</body>
+<!-------------------------------------------Excercise 4----------------------------------------------->
+<!----------------Question 1--------------------->
+<h2>Question 4</h2>
+<h3>Question 1</h3>
+
+<body>
+    <p>Bấm vào để hoàn thành bài tập</p>
+    <button onclick="myFunction()">Hoàn thành</button>
+    <script>
+        function myFunction() {
+            alert("Hello Worl, Hoàn thành bài tập!")
+        }   
+    </script>
+</body>
+<!----------------Question 2--------------------->
+<h3>Question 2</h3>
+
+<body>
+    <script>
+        document.write("Hello world! (by script)")
+    </script>
+</body>
+<!----------------Question 3--------------------->
+<h3>Question 3</h3>
+
+<body>
+    <p>console.log() xem trên thanh console</p>
+    <script>
+        console.log("hello world!")
+    </script>
+</body>
+<!----------------Question 4--------------------->
+<h3>Question 4</h3>
+
+<body>
+    <p>Nhấn vào dưới để hoàn thành bài tập!</p>
+    <button onclick="myQuestion4()" ; style="color: red;">Click here!</button>
+    <script>
+        function myQuestion4() {
+            confirm("Bạn có đòng ý yêu tôi không?");
+        }
+    </script>
+</body>
+<!----------------Question 5--------------------->
+<h3>Question 5</h3>
+<p style="color: red;">Cần chữa</p>
+
+<body>
+
+    <input type="text" ; id="id5" type="text" name="id5">
+    <span><button onclick="myQuestion5()">Hoàn thành</button></span>
+    <script>
+        var ten = document.getElementById("id5");
+
+        function myQuestion5() {
+            var q5 = document.getElementById("id5");
+            if (q5 != null) {
+                window.alert("Hello " + q5);
+            }
+        }
+    </script>
+</body>
+<!----------------Question 6--------------------->
+<h3>Question 6</h3>
+<button onclick="ques6()">Bấm vào đây</button>
+<p id="61"></p>
+<p id="62"></p>
+<script>
+    function ques6() {
+        var txt1;
+        var txt2;
+        var Person1 = prompt("Hãy nhập tên của bạn!", "VTI Accademy");
+        if (Person1 != null) {
+            document.getElementById("61").innerHTML = "Chào bạn " + Person1;
+        }
+        else {
+            document.getElementById("61").innerHTML = "Mời bạn nhập tên!";
+        }
+        var Person2 = prompt("Hãy nhập vào tuổi của bạ!", "20");
+        if (Person2 != null) {
+            document.getElementById("62").innerHTML = "Tuổi của bạn là: " + Person2;
+        } else {
+            document.getElementById("62").innerHTML = "Bạn chưa nhập tuổi!";
+        }
+    }
+</script>
+<!----------------Question 7--------------------->
+<h3>Question 7</h3>
+<button onclick="ques7()">Giờ hiện tại là<br>Click here</button>
+<script>
+    function ques7() {
+        var today = new Date();
+        var date = today.getHours() + ' giờ ' + today.getMinutes() + ' phút.';
+        window.alert('Bây giờ là: ' + date);
+    }
+</script>
+<!----------------Question 8--------------------->
+<h3>Question 8</h3>
+<p id="81"></p>
+<p id="82"></p>
+<p id="83"></p>
+<script>
+    var ten = 'VTI Accademy';
+    var role = 'Male';
+    var email = 'VTIaccademy@vti.com.vn';
+    document.getElementById("81").innerHTML = "Name: " + ten;
+    document.getElementById("82").innerHTML = "Gender: " + role;
+    document.getElementById("83").innerHTML = "Email: " + email;
+</script>
+<!----------------Question 9--------------------->
+<h3>Question 9</h3>
+<script>
+    var result = (5 > 10);
+    document.write("kết quả: " + result);
+</script>
+<!----------------Question 10--------------------->
+<h3>Question 10(CẦN CHỮA)</h3>
+<input type="text" ; id="101" value=""> <span>Số thứ nhất</span><br><br>
+<input type="text" ; id="102" value=""> <span>Số thứ hai
+<button onclick="cong10()">Tổng 2 số</button>
+    <p id="103"></p>
+    <script>
+
+        function cong10() {
+            var a10 = document.getElementById(Element: "101").value;
+            var b10 = document.getElementById(Element: "102").value;
+            var ab = a10 + b10;
+            document.getElementById("103").innerHTML=ab;
+        }
+
+    </script>
+    <!-------------------------------------------Excercise 8----------------------------------------------->
+    <!----------------Question 1--------------------->
+    <h2>Excercise 8</h2>
+    <h3>Question 1</h3>
+
+
+
+
+
+</html>
