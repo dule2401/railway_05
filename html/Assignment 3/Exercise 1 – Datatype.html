@@ -76,10 +76,17 @@
         document.write(GroupAccount4.GroupID + " " + GroupAccount4.AccountID);
 
         if (anh.DepartmentID == null) {
-            text += "nhân viên này chưa có phongf ban"+ "<br>";
+            console.log("nhân viên này chưa có phongf ban");
+            return;
         } else{
-        text += "phòng ban nhân viên này là "+ DepartmentID + "<br>";
-    }   
+            console.log("phòng ban nhân viên này là "+ anh.DepartmentID );
+        }
+        if (anh.GroupAccount == null) {
+            console.log("Nhân viên này chưa có group");
+            return;
+        } else if (anh.GroupAccount ) {
+            
+        }
     </script>
 </body>
 

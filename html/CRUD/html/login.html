@@ -1,0 +1,44 @@
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2>View List Employees</h2>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new" onclick="addNewEmployee()"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Phone</th>
+                        <!-- <th>Actions</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+  <div class="bs-example">
+        <div id="myModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">vui lòng login</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="name"><b>Uersname</b></label>
+                        <input type="text" placeholder="Enter Name" name="name" id="name" required>
+      
+                        <label for="department"><b>Password</b></label>
+                        <input type="text" placeholder="Enter Department" name="department" id="department" required>
+      
+                        <button type="button" class="btn btn-primary" onclick="validate()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
