@@ -49,7 +49,8 @@ FROM
     question Q
         LEFT JOIN
     examquestion EQ ON EQ.question_id = Q.question_id
-GROUP BY Q.question_id
+GROUP BY Q.question
+
 HAVING COUNT(EQ.exam_id) = (SELECT 
         MAX(So_Luong_Exam)
     FROM
@@ -60,7 +61,7 @@ HAVING COUNT(EQ.exam_id) = (SELECT
         LEFT JOIN examquestion EQ ON EQ.question_id = Q.question_id
         GROUP BY Q.question_id) AS statistic_Question_Exam);
 -----------------------------------------------------------------------------------
--- Question 6: Thông kê mỗi category Question được sử dụng trong bao nhiêu Question --
+-- Question 6: Thông kê mỗi countQuestion được sử dụng trong bao nhiêu Question --
 USE `quan_ly_phong_ban`;
 SELECT 
     C.category_id,
@@ -156,7 +157,7 @@ FROM
         LEFT JOIN
     answer A ON Q.question_id = A.question_id
         LEFT JOIN
-    `account` AC ON Q.creator_id = AC.account_id;
+    `ư` AC ON Q.creator_id = AC.account_id;
 
 ----------------------------------------------------------------------
 -- Question 13: Lấy ra số lượng câu hỏi của mỗi loại tự luận hay trắc nghiệm
