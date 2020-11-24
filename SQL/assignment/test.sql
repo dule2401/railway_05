@@ -100,10 +100,10 @@ DROP PROCEDURE IF EXISTS delete_democode;
 DELIMITER $$
 CREATE PROCEDURE delete_democode(IN in_put_location_id TINYINT UNSIGNED )
 	BEGIN
-		DELETE 
+		
+DELETE 
 		FROM Location
         WHERE location_id = in_put_location_id;
     END$$
 DELIMITER ;
-
 
