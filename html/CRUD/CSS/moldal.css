@@ -1,12 +1,15 @@
-.bs-example {
-    margin: 20px;
+/* Add padding to containers */
+
+.modal-container {
+    padding: 16px;
+    background-color: white;
 }
 
 
 /* Full-width input fields */
 
 input[type=text],
-input[type=tel] {
+input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -16,7 +19,7 @@ input[type=tel] {
 }
 
 input[type=text]:focus,
-input[type=tel]:focus {
+input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }

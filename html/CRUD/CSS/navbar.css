@@ -1,5 +1,11 @@
+body {
+    margin: 0;
+    background-color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #navbar {
-    background-color: dodgerblue;
+    background-color: #333;
     position: fixed;
     top: 0;
     width: 100%;
